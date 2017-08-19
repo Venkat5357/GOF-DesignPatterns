@@ -1,4 +1,4 @@
-package com.practise.designpatterns.builder;
+package com.practise.designpatterns.creational.builder;
 
 public class Computer {
 

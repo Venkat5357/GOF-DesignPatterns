@@ -1,4 +1,4 @@
-package com.practise.designpatterns.abstractfactory;
+package com.practise.designpatterns.creational.abstractfactory;
 
 public class MasterCardFactory extends CreditCardFactory {
 

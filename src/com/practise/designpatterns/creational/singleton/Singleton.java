@@ -1,4 +1,4 @@
-package com.practise.designpatterns.singleton;
+package com.practise.designpatterns.creational.singleton;
 
 public class Singleton {
 
