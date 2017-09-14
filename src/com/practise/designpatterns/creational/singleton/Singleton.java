@@ -1,5 +1,8 @@
 package com.practise.designpatterns.creational.singleton;
 
+/*
+    Guarantees only one object is created in jvm
+ */
 public class Singleton {
 
     //Rule 1 : - private constructor to restrict instantiation of the class from other classes
@@ -30,14 +33,36 @@ public class Singleton {
     public static Singleton getSingletonInstance(){
 
 
-        //lazy initialization
+
+
+        //lazy initialization - works fin incase of single threaded environment
         if(singletonInstance == null){
 
             singletonInstance = new Singleton();
+
+
+            // creating a thread safe singleton
+            // one way is to make public access method synchronized - but it reduces performance.
+
+            // second use double checked locking principle
+
+            synchronized (Singleton.class){
+                if(singletonInstance == null){
+                    singletonInstance = new Singleton();
+                }
+            }
         }
+
+
+
+
 
         return singletonInstance;
     }
+
+
+
+
 
 
 }
