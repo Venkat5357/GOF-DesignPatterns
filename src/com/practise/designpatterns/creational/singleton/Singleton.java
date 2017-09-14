@@ -2,6 +2,8 @@ package com.practise.designpatterns.creational.singleton;
 
 /*
     Guarantees only one object is created in jvm
+
+    Examples of singleton class are Runtime,Logger,SpringBean
  */
 public class Singleton {
 
