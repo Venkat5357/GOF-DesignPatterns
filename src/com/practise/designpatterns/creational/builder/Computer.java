@@ -1,5 +1,11 @@
 package com.practise.designpatterns.creational.builder;
 
+/*
+   Builder pattern is used if you want to construct objects that contains lot of parameters and want to make object immutable
+   after Constructing it.
+
+   Examples are : StringBuilder,DocumentBuilder,LocaleBuilder
+ */
 public class Computer {
 
     //required parameters
@@ -27,6 +33,8 @@ public class Computer {
         return isBluetoothEnabled;
     }
 
+    // Step 4 - Need to have private constructor in the outer class with builderclass as argument and set all the outer arguments
+    //with builder arguments.
     private Computer(ComputerBuilder builder) {
         this.HDD=builder.HDD;
         this.RAM=builder.RAM;
@@ -34,7 +42,7 @@ public class Computer {
         this.isBluetoothEnabled=builder.isBluetoothEnabled;
     }
 
-    //Builder Class
+    //Step1: Create a static nested classs and copy all arguments from outer class to the builder class
     public static class ComputerBuilder{
 
         // required parameters
@@ -45,11 +53,13 @@ public class Computer {
         private boolean isGraphicsCardEnabled;
         private boolean isBluetoothEnabled;
 
+        //Public constructor with all required attributes as parameters.
         public ComputerBuilder(String hdd, String ram){
             this.HDD=hdd;
             this.RAM=ram;
         }
 
+        // Should have methods to set optinal parameters and should return the same builder object after setting
         public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
             this.isGraphicsCardEnabled = isGraphicsCardEnabled;
             return this;
@@ -60,6 +70,7 @@ public class Computer {
             return this;
         }
 
+        //provide a build method in the builder class that will return the object needed.
         public Computer build(){
             return new Computer(this);
         }
